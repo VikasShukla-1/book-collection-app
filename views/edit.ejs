@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Book</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+  <h1>✏️ Edit <%= book.title %></h1>
+  <form action="/edit/<%= book.id %>" method="post" class="edit-form">
+    <!-- <h2>heloo test</h2> -->
+    <input type="number" name="rating" value="<%= book.rating %>" min="1" max="5" required />
+    <textarea name="review"><%= book.review %></textarea>
+    <button type="submit">Update Book</button>
+  </form>
+</body>
+</html>

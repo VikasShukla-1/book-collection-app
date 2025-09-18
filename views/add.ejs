@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a Book</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <h1>➕ Add a New Book</h1>
+  <form action="/add" method="post" class="add-form">
+    <input type="text" name="title" placeholder="Book Title" required />
+    <input type="text" name="author" placeholder="Author" required />
+    <input type="number" name="year" placeholder="Year" />
+    <input type="number" name="rating" placeholder="Rating (1-5)" min="1" max="5" />
+    <textarea name="review" placeholder="Your review"></textarea>
+    <button type="submit">Add Book</button>
+  </form>
+</body>
+</html>

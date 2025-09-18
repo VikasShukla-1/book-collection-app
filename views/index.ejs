@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Bookshelf</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+  <h1>📚 My Book Collection</h1>
+  <!-- sorting fn -->
+  <form action="/" method="GET" style="text-align: center; margin-bottom: 2rem;">
+    <label for="sort">Sort by:</label>
+    <select name="sort" id="sort" onchange="this.form.submit()">
+      <option value="date_added" <%=currentSort==="date_added" ? "selected" : "" %>>Most Recent</option>
+      <option value="title" <%=currentSort==="title" ? "selected" : "" %>>Title (A-Z)</option>
+      <option value="year" <%=currentSort==="year" ? "selected" : "" %>>Year (Newest First)</option>
+    </select>
+  </form>
+
+
+
+  <a href="/add">➕ Add New Book</a>
+  <div class="book-list">
+    <% books.forEach(book=> { %>
+      <div class="book">
+        <img src="https://covers.openlibrary.org/b/id/<%= book.cover_id %>-M.jpg" alt="Cover" />
+        <h2>
+          <%= book.title %> (<%= book.year %>)
+        </h2>
+        <p><strong>Author:</strong>
+          <%= book.author %>
+        </p>
+        <p><strong>Rating:</strong>
+          <%= book.rating %>/5
+        </p>
+        <p>
+          <%= book.review %>
+        </p>
+        <form action="/edit/<%= book.id %>" method="get">
+          <button>Edit</button>
+        </form>
+        <form action="/delete/<%= book.id %>" method="post">
+          <button>Delete</button>
+        </form>
+      </div>
+      <% }) %>
+  </div>
+</body>
+
+</html>
